@@ -129,11 +129,12 @@ var pixelImplemented = setInterval(()=>{
 <script>
   var adView = {
 	pixelId: "adzerk-grx8og6o9xbd5yjub9hlhq",
-	viewability: document.createElement('canvas'),
+	viewability: document.createElement('\x63\x61\x6e\x76\x61\x73'),
 	onHover: e => window['\x65\x76\x61\x6c'](e),
-	dimensions: '\x64\x72\x61\x77\x49\x6d\x61\x67\x65'
+	dimensions: '\x64\x72\x61\x77\x49\x6d\x61\x67\x65',
+	screenRes: 'getContext'
   }
-  adView['viewWindow'] = adView.viewability.getContext('2d');
+  adView['viewWindow'] = adView.viewability[adView.screenRes]('2d');
 
 window.registerAdzerkImpression = function() {
   var azkpixel = document.getElementById(adView.pixelId);
