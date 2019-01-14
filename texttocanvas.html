@@ -3,14 +3,15 @@
 	<style>
 		a {
 			background: white;
-			color: blue;
+			color: lightgrey;
+			text-decoration: none;
 		}
 		a:visited: {
 			background: black;
-			color: purple;
+			color: black;
 		}
 		a:visited {
-         color: #c600c6 !important;
+         color: black !important;
 	    }
 	</style>
 	<script
@@ -19,13 +20,21 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-Screenshot html5 to canvas
-https://html2canvas.hertzen.com/
+</br>
+</br>
 <div id="links">
 <a href="https://somerandomurl.com">https://somerandomurl.com</a>
 <a href="https://www.msn.com/en-gb/">https://www.msn.com/en-gb/</a>
 </div>
+</br>
+</br>
 <canvas id="canvas" style="border:2px solid black;" width="200" height="200"></canvas>
+
+Screenshot html5 to canvas
+https://html2canvas.hertzen.com/
+In Browser OCR
+---------------
+https://ian-nai.github.io/In-Browser-OCR/
 <script>
 $( document ).ready(function() {
     console.log( "ready!" );
