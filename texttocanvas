@@ -1,0 +1,56 @@
+<html>
+<head>
+	<style>
+		a {
+			background: white;
+			color: blue;
+		}
+		a:visited: {
+			background: black;
+			color: purple;
+		}
+		a:visited {
+         color: #c600c6 !important;
+	    }
+	</style>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+Screenshot html5 to canvas
+https://html2canvas.hertzen.com/
+<div id="links">
+<a href="https://somerandomurl.com">https://somerandomurl.com</a>
+<a href="https://www.msn.com/en-gb/">https://www.msn.com/en-gb/</a>
+</div>
+<canvas id="canvas" style="border:2px solid black;" width="200" height="200"></canvas>
+<script>
+$( document ).ready(function() {
+    console.log( "ready!" );
+	var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+  
+  data = $('#links').html();
+
+var DOMURL = window.URL || window.webkitURL || window;
+
+var img = new Image();
+var svg = new Blob([data], {
+  type: 'image/svg+xml;charset=utf-8'
+});
+var url = DOMURL.createObjectURL(svg);
+
+img.onload = function() {
+  ctx.drawImage(img, 0, 0);
+  DOMURL.revokeObjectURL(url);
+}
+
+img.src = url;
+});
+
+</script>
+</body>
+</html>
