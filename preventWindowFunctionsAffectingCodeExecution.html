@@ -1,0 +1,30 @@
+console.log('this script is to preventWindowFunctionsAffectingCodeExecution')
+// it will need to be modified slightly in order to make sure your methods are using the ones from inside the iframe window,
+//rather than the website window.
+// If you remove your methods from the global namespace also, and put them instead inside the iframe namespace 
+//it will give you a safe place to store them before sending back to the server. (without perhaps being detected).
+
+function isNativeWindowProperty(propertyName) {
+    var result = false;
+    var iframe = document.createElement('iframe');
+    iframe.src = 'javascript:;';
+    document.getElementsByTagName('body')[0].appendChild(iframe);
+    if (window[propertyName].toString() === iframe.contentWindow[propertyName].toString()) {
+        // check window[propertyName].toString override
+        if (window[propertyName].toString.toString() === iframe.contentWindow[propertyName].toString.toString()) {
+            result = true;
+        }
+    }
+    iframe.parentNode.removeChild(iframe);
+    return result;
+};
+
+console.log(isNativeWindowProperty('alert'));  // true
+
+window.alert = function() {};
+console.log(isNativeWindowProperty('alert'));  // false
+
+window.alert.toString = function() {
+    return 'function alert() { [native code] }';
+};
+console.log(isNativeWindowProperty('alert'));  // false
