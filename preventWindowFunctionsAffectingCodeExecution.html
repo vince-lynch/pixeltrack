@@ -4,6 +4,12 @@ console.log('this script is to preventWindowFunctionsAffectingCodeExecution')
 // If you remove your methods from the global namespace also, and put them instead inside the iframe namespace 
 //it will give you a safe place to store them before sending back to the server. (without perhaps being detected).
 
+// EXTENDED SCRIPT CODE should be inside IFRAME
+// AS IT DOES NOT NEED access to the main window.
+// Final SCRIPT (D) DOES!
+
+//https://stackoverflow.com/questions/251420/invoking-javascript-code-in-an-iframe-from-the-parent-page
+
 function isNativeWindowProperty(propertyName) {
     var result = false;
     var iframe = document.createElement('iframe');
